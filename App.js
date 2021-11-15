@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('Raj');
   const [person, setPerson] = useState({name: "Siva", age: 25})
+  const [getFruit, setfruit] = useState('-');
+  const [getDrink, setDrink] = useState('-');
+  const [getAge, setAge] = useState('-');
 
   const clickHandler = () =>{
     setName("Rajkumar");
@@ -14,6 +17,9 @@ export default function App() {
   const undoSateClickHandler = () =>{
     setName("Raj");
     setPerson({name: "Siva", age: 25})
+    setfruit("-")
+    setDrink("-")
+    setAge("-")
   }
 
   return (
@@ -26,6 +32,23 @@ export default function App() {
       <View style={styles.buttonContainer}>
         <Button title="undo state" onPress={undoSateClickHandler}></Button>
       </View>
+
+      <Text>Enter fav fruit: {getFruit}</Text>
+      <TextInput 
+        style={styles.textBoxStyle}
+        placeholder="e.g Apple"
+        onChangeText={(value) => setfruit(value)}/>
+      <Text>Enter fav drink: {getDrink}</Text>
+      <TextInput 
+        style={styles.textBoxStyle}
+        placeholder="e.g Milk"
+        onChangeText={(value) => setDrink(value)}/>
+      <Text>Enter age: {getAge}</Text>
+      <TextInput 
+        keyboardType="numeric"
+        style={styles.textBoxStyle}
+        placeholder="e.g 30"
+        onChangeText={(value) => setAge(value)}/>
     </View>
   );
 }
@@ -39,5 +62,12 @@ const styles = StyleSheet.create({
   },
   buttonContainer:{
     marginTop:20
+  },
+  textBoxStyle:{
+    borderWidth:2,
+    borderColor:'FF0000',
+    padding:5,
+    margin:10,
+    width:200
   }
 });
