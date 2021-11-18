@@ -26,9 +26,9 @@ export default function App() {
     <View style={styles.container}>
       <Text>My name is {name}</Text>
       <Text>His name is {person.name} and his age is {person.age}</Text>
-      <View style={styles.buttonContainer}>
-        <Button title="update state" onPress={clickHandler}></Button>
-      </View>
+        <View style={styles.buttonContainer}>
+          <Button title="update state" onPress={clickHandler}></Button>
+        </View>
       <View style={styles.buttonContainer}>
         <Button title="undo state" onPress={undoSateClickHandler}></Button>
       </View>
@@ -40,6 +40,7 @@ export default function App() {
         onChangeText={(value) => setfruit(value)}/>
       <Text>Enter fav drink: {getDrink}</Text>
       <TextInput 
+        multiline
         style={styles.textBoxStyle}
         placeholder="e.g Milk"
         onChangeText={(value) => setDrink(value)}/>
